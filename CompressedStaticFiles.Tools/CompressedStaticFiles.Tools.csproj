@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <AssemblyName>DarkXaHTeP.CompressedStaticFiles.Tools</AssemblyName>
+        <RootNamespace>DarkXaHTeP.CompressedStaticFiles.Tools</RootNamespace>
+        <PackAsTool>True</PackAsTool>
+        <OutputType>exe</OutputType>
+        <ToolCommandName>compress</ToolCommandName>
+        <Title>Brotli/GZip/Deflate CLI Tool</Title>
+        <Description>Allows compressing static assets using one of the common formats: Brotli, GZip or Deflate.</Description>
+        <Version>0.0.1</Version>
+        <Authors>DarkXaHTeP</Authors>
+        <PackageLicense>https://github.com/DarkXaHTeP/DarkXaHTeP.CompressedStaticFiles.Tools/blob/master/LICENSE</PackageLicense>
+        <PackageProjectUrl>https://github.com/DarkXaHTeP/DarkXaHTeP.CompressedStaticFiles.Tools</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/DarkXaHTeP/DarkXaHTeP.CompressedStaticFiles.Tools</RepositoryUrl>
+        <PackageReleaseNotes>Test release</PackageReleaseNotes>
+        <PackageTags>compress;assets;deflate;brotli;gzip;compression;staticfiles</PackageTags>
+        <IncludeSymbols>false</IncludeSymbols>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="..\LICENSE" CopyToOutputDirectory="Always" />
+        <None Include="..\README.md" CopyToOutputDirectory="Always" />
+        <None Include="..\CHANGELOG.md" CopyToOutputDirectory="Always" />
+    </ItemGroup>
+</Project>

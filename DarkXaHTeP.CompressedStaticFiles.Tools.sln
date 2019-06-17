@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarkXaHTeP.CompressedStaticFiles.Tools", "DarkXaHTeP.CompressedStaticFiles.Tools\DarkXaHTeP.CompressedStaticFiles.Tools.csproj", "{D52B4290-7050-4C1D-B66E-567B78E23171}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompressedStaticFiles.Tools", "CompressedStaticFiles.Tools\CompressedStaticFiles.Tools.csproj", "{D52B4290-7050-4C1D-B66E-567B78E23171}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,9 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <TargetFramework>netcoreapp2.2</TargetFramework>
-        <PackAsTool>True</PackAsTool>
-        <OutputType>exe</OutputType>
-        <ToolCommandName>compress</ToolCommandName>
-    </PropertyGroup>
-</Project>
