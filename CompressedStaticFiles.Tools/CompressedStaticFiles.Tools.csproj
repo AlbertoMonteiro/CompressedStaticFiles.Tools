@@ -11,7 +11,7 @@
         <Description>Allows compressing static assets using one of the common formats: Brotli, GZip or Deflate.</Description>
         <Version>0.0.1</Version>
         <Authors>DarkXaHTeP</Authors>
-        <license type="expression">MIT</license>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/DarkXaHTeP/DarkXaHTeP.CompressedStaticFiles.Tools</PackageProjectUrl>
         <RepositoryUrl>https://github.com/DarkXaHTeP/DarkXaHTeP.CompressedStaticFiles.Tools</RepositoryUrl>
         <PackageReleaseNotes>Test release</PackageReleaseNotes>
