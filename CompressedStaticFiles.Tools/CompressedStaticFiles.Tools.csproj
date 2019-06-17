@@ -9,7 +9,7 @@
         <ToolCommandName>dotnet-compress</ToolCommandName>
         <Title>Brotli/GZip/Deflate CLI Tool</Title>
         <Description>Allows compressing static assets using one of the common formats: Brotli, GZip or Deflate.</Description>
-        <Version>0.0.1</Version>
+        <Version>0.0.2</Version>
         <Authors>DarkXaHTeP</Authors>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/DarkXaHTeP/DarkXaHTeP.CompressedStaticFiles.Tools</PackageProjectUrl>
