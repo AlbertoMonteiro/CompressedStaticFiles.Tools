@@ -23,4 +23,7 @@
         <None Include="..\README.md" CopyToOutputDirectory="Always" />
         <None Include="..\CHANGELOG.md" CopyToOutputDirectory="Always" />
     </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.3.4" />
+    </ItemGroup>
 </Project>
