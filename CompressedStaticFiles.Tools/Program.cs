@@ -14,15 +14,19 @@ namespace DarkXaHTeP.CompressedStaticFiles.Tools
         public string WorkDir { get; } = null;
 
         [Option("-gz|--gzip", "Compress to GZip", CommandOptionType.NoValue)]
-        public bool GZipRequested { get; } = false;
+        public bool UseGZip { get; } = false;
         
         [Option("-br|--brotli", "Compress to GZip", CommandOptionType.NoValue)]
-        public bool GZipRequested { get; } = false;
+        public bool UseBrotli { get; } = false;
 
 
         public int OnExecute()
         {
-            Console.WriteLine("GZip: " + GZipRequested);
+            if (!UseBrotli && !UseGZip)
+            {
+                Console.WriteLine("At least one compression algorithm is required");
+                return -1;
+            }
             
             var currentDirPath = Directory.GetCurrentDirectory();
             var workDirPath = WorkDir == null ? currentDirPath : Path.Combine(currentDirPath, WorkDir);
