@@ -1,0 +1,12 @@
+language: bash
+services:
+  - docker
+install:
+  - docker pull mcr.microsoft.com/dotnet/core/sdk:2.2.105-alpine3.9
+script:
+  - docker run -i --rm -v $(pwd):/data mcr.microsoft.com/dotnet/core/sdk:2.2.105-alpine3.9 sh -c "cd /data && dotnet restore && dotnet pack ./CompressedStaticFiles.Tools/CompressedStaticFiles.Tools.csproj -c release -o ../release"
+after_success:
+  - if [ "$TRAVIS_TAG" != "" ];
+    then docker run -i --rm -v $(pwd):/data mcr.microsoft.com/dotnet/core/sdk:2.2.105-alpine3.9 sh -c "cd /data && dotnet nuget push ./release/*.nupkg -k $NUGET_API_KEY -s https://www.nuget.org/api/v2/package";
+    else echo "Skipping deployment for not tagged commits";
+    fi
