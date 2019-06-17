@@ -6,7 +6,7 @@
         <RootNamespace>DarkXaHTeP.CompressedStaticFiles.Tools</RootNamespace>
         <PackAsTool>True</PackAsTool>
         <OutputType>exe</OutputType>
-        <ToolCommandName>compress</ToolCommandName>
+        <ToolCommandName>dotnet-compress</ToolCommandName>
         <Title>Brotli/GZip/Deflate CLI Tool</Title>
         <Description>Allows compressing static assets using one of the common formats: Brotli, GZip or Deflate.</Description>
         <Version>0.0.1</Version>
