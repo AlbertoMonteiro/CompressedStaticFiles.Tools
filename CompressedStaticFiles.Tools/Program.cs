@@ -10,6 +10,9 @@ namespace DarkXaHTeP.CompressedStaticFiles.Tools
 {
     public class Program
     {
+        private const string BrotliExtension = ".br";
+        private const string GZipExtension = ".gz";
+
         private string _workDirPath;
 
         [Argument(0, "search_pattern1 search_pattern2 ...")]
@@ -86,23 +89,38 @@ namespace DarkXaHTeP.CompressedStaticFiles.Tools
         {
             if (UseGZip)
             {
-                yield return (fi, CreateGZip);
+                if (fi.Extension == GZipExtension)
+                {
+                    yield return (fi, Skip("GZIP"));
+                }
+                else
+                {
+                    yield return (fi, CreateGZip);
+                }
             }
 
             if (UseBrotli)
             {
-                yield return (fi, CreateBrotli);
+                if (fi.Extension == BrotliExtension)
+                {
+                    yield return (fi, Skip("BROTLI"));
+                }
+                else
+                {
+
+                    yield return (fi, CreateBrotli);
+                }
             }
         }
 
         private async Task CreateBrotli(FileInfo fi)
         {
-            await CreateCompressed(fi, ".br", "BROTLI", stream => new BrotliStream(stream, CompressionLevel.Optimal));
+            await CreateCompressed(fi, BrotliExtension, "BROTLI", stream => new BrotliStream(stream, CompressionLevel.Optimal));
         }
 
         private async Task CreateGZip(FileInfo fi)
         {
-            await CreateCompressed(fi, ".gz", "GZIP", stream => new GZipStream(stream, CompressionLevel.Optimal));
+            await CreateCompressed(fi, GZipExtension, "GZIP", stream => new GZipStream(stream, CompressionLevel.Optimal));
         }
 
         private async Task CreateCompressed(FileInfo fi, string extension, string name, Func<Stream, Stream> createCompressStream)
@@ -122,6 +140,16 @@ namespace DarkXaHTeP.CompressedStaticFiles.Tools
             }
 
             Console.WriteLine($"[{name}][Done] {GetRelativePath(_workDirPath, destFileInfo.FullName)} [{destFileInfo.Length / 1024}KB]");
+        }
+
+        private Func<FileInfo, Task> Skip(string name)
+        {
+            return fi =>
+            {
+                Console
+                    .WriteLine($"[{name}][Skip] {GetRelativePath(_workDirPath, fi.FullName)} [{fi.Length / 1024}KB]");
+                return Task.CompletedTask;
+            };
         }
 
         private string GetRelativePath(string workDirPath, string fullName)
