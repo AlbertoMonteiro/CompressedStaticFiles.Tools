@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CompressedStaticFiles.Tools help": {
+      "commandName": "Project",
+      "commandLineArgs": "--help"
+    }
+  }
+}

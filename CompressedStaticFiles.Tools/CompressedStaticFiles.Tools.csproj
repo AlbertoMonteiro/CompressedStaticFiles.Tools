@@ -1,37 +1,39 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFrameworks>net5.0;net6.0;net7.0</TargetFrameworks>
-        <AssemblyName>CompressedStaticFiles.Tools</AssemblyName>
-        <RootNamespace>CompressedStaticFiles.Tools</RootNamespace>
-        <PackAsTool>True</PackAsTool>
-        <OutputType>exe</OutputType>
-        <ToolCommandName>dotnet-compress</ToolCommandName>
-        <Title>Brotli/GZip/Deflate CLI Tool</Title>
-        <Description>Allows compressing static assets using one of the common formats: Brotli, GZip or Deflate.</Description>
-        <Version>1.0.2</Version>
-        <Authors>Alberto Monteiro</Authors>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageProjectUrl>https://github.com/AlbertoMonteiro/CompressedStaticFiles.Tools</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/AlbertoMonteiro/CompressedStaticFiles.Tools</RepositoryUrl>
-        <PackageReleaseNotes>Test release</PackageReleaseNotes>
-        <PackageTags>compress;assets;deflate;brotli;gzip;compression;staticfiles</PackageTags>
-        <IncludeSymbols>false</IncludeSymbols>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-    </PropertyGroup>
-    <ItemGroup>
-        <None Include="..\LICENSE" CopyToOutputDirectory="Always" />
-        <None Include="..\README.md" CopyToOutputDirectory="Always">
-          <Pack>True</Pack>
-          <PackagePath>\</PackagePath>
-        </None>
-        <None Include="..\CHANGELOG.md" CopyToOutputDirectory="Always" />
-    </ItemGroup>
-    <ItemGroup>
-      <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="4.0.1" />
-    </ItemGroup>
+  <PropertyGroup>
+    <TargetFrameworks>net5.0;net6.0;net7.0</TargetFrameworks>
+    <LangVersion>10</LangVersion>
+    <AssemblyName>CompressedStaticFiles.Tools</AssemblyName>
+    <RootNamespace>CompressedStaticFiles.Tools</RootNamespace>
+    <PackAsTool>True</PackAsTool>
+    <OutputType>exe</OutputType>
+    <ToolCommandName>dotnet-compress</ToolCommandName>
+    <Title>Brotli/GZip/Deflate CLI Tool</Title>
+    <Description>Allows compressing static assets using one of the common formats: Brotli, GZip or Deflate.</Description>
+    <Version>1.0.3</Version>
+    <Authors>Alberto Monteiro</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/AlbertoMonteiro/CompressedStaticFiles.Tools</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AlbertoMonteiro/CompressedStaticFiles.Tools</RepositoryUrl>
+    <PackageReleaseNotes>Test release</PackageReleaseNotes>
+    <PackageTags>compress;assets;deflate;brotli;gzip;compression;staticfiles</PackageTags>
+    <IncludeSymbols>false</IncludeSymbols>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\LICENSE" CopyToOutputDirectory="Always" />
+    <None Include="..\README.md" CopyToOutputDirectory="Always">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\CHANGELOG.md" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Spectre.Console" Version="0.45.0" />
+    <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
+  </ItemGroup>
 </Project>
