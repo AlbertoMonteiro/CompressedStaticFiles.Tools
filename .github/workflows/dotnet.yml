@@ -26,8 +26,8 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Pack
-      run: dotnet build ./CompressedStaticFiles.Tools/CompressedStaticFiles.Tools.csproj -c Release -o nuget
+      run: dotnet pack ./CompressedStaticFiles.Tools/CompressedStaticFiles.Tools.csproj -c Release -o nuget
     - name: Publish
       run: |
-        cd CompressedStaticFiles.Tools/nuget
+        cd nuget
         dotnet nuget push *.nupkg -k ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
