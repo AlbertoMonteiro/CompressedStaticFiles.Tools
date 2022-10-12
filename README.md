@@ -1,6 +1,13 @@
 # CompressedStaticFiles.Tools
 A CLI tool that allows to compress static assets using Brotli or GZip
 
+# Instalation
+![Nuget](https://img.shields.io/nuget/v/CompressedStaticFiles.Tools?style=flat-square)
+
+```
+dotnet tool install --global CompressedStaticFiles.Tools
+```
+
 # Usage
 
 ```
@@ -14,8 +21,7 @@ Arguments:
   <search_pattern1 search_pattern2 ...>
 
 Options:
-  -w, --workdir <workdir>  Use directory relative to CWD [default:
-                           C:\Dev\CompressedStaticFiles.Tools\CompressedStaticFiles.Tools\bin\Debug\net5.0]
+  -w, --workdir <workdir>  Use directory relative to CWD [default: current directory]
   -gz, --gzip              Compress to GZip
   -br, --brotli            Compress to GZip
   --batch <batch>          Number of compressions to execute simultaneously [default: 1]
