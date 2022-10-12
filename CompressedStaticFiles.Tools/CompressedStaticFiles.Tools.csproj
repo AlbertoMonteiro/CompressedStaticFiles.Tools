@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net5.0;net6.0</TargetFrameworks>
+        <TargetFrameworks>net5.0;net6.0;net7.0</TargetFrameworks>
         <AssemblyName>CompressedStaticFiles.Tools</AssemblyName>
         <RootNamespace>CompressedStaticFiles.Tools</RootNamespace>
         <PackAsTool>True</PackAsTool>
@@ -9,7 +9,7 @@
         <ToolCommandName>dotnet-compress</ToolCommandName>
         <Title>Brotli/GZip/Deflate CLI Tool</Title>
         <Description>Allows compressing static assets using one of the common formats: Brotli, GZip or Deflate.</Description>
-        <Version>1.0.1</Version>
+        <Version>1.0.2</Version>
         <Authors>Alberto Monteiro</Authors>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/AlbertoMonteiro/CompressedStaticFiles.Tools</PackageProjectUrl>
