@@ -19,7 +19,7 @@ internal static class Compressor
     private static bool _useGzip;
     private static DirectoryInfo _workDir;
     private static Table _table;
-    private static LiveDisplayContext _ctx;
+    private static Action _refreshLive = () => { };
 
     internal static async Task<int> Execute(string[] fileMasks, DirectoryInfo workDir, bool useGzip, bool useBrotli, uint batchSize)
     {
@@ -59,8 +59,8 @@ internal static class Compressor
         await Live(_table)
             .StartAsync(async ctx =>
             {
-                _ctx = ctx;
-                await Task.Delay(100);
+                if (AnsiConsole.Profile.Out.IsTerminal)
+                    _refreshLive = ctx.Refresh;
                 var compressions = files.SelectMany(static f => CreateCompressionTasks(f)).ToList();
 
                 var batches = SplitCompressions(compressions, Math.Clamp(batchSize, 1, 99));
@@ -127,7 +127,7 @@ internal static class Compressor
         using (var readStream = fi.OpenRead())
         {
             var row = _table.AddRow("[blue]open[/]", name, $"[bold]{filePath}[/]", $"[darkorange]{fileSize}KB[/]");
-            _ctx.Refresh();
+            _refreshLive();
             using var brStream = createCompressStream(destFileInfo.OpenWrite());
             await readStream.CopyToAsync(brStream);
         }
@@ -135,14 +135,14 @@ internal static class Compressor
         _ = _table.UpdateCell(lastRow, 0, "[green]done[/]");
         _ = _table.UpdateCell(lastRow, 2, $"[bold]{filePath} -> {GetRelativePath(_workDir.FullName, destFileInfo.FullName)}[/]");
         _ = _table.UpdateCell(lastRow, 3, $"[darkorange]{fileSize}KB -> {destFileInfo.Length / 1024}KB[/]");
-        _ctx.Refresh();
+        _refreshLive();
     }
 
     private static Func<FileInfo, Task> Skip(string name)
         => fi =>
         {
             _ = _table.AddRow("[yellow]skip[/]", name, $"[bold]{GetRelativePath(_workDir.FullName, fi.FullName)}[/]", $"[darkorange]{fi.Length / 1024}KB[/]");
-            _ctx.Refresh();
+            _refreshLive();
             return Task.CompletedTask;
         };
 }
