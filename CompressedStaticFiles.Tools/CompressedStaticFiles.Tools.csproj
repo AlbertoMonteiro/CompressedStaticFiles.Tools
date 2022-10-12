@@ -1,19 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp2.2</TargetFramework>
-        <AssemblyName>DarkXaHTeP.CompressedStaticFiles.Tools</AssemblyName>
-        <RootNamespace>DarkXaHTeP.CompressedStaticFiles.Tools</RootNamespace>
+        <TargetFrameworks>net5.0;net6.0</TargetFrameworks>
+        <AssemblyName>CompressedStaticFiles.Tools</AssemblyName>
+        <RootNamespace>CompressedStaticFiles.Tools</RootNamespace>
         <PackAsTool>True</PackAsTool>
         <OutputType>exe</OutputType>
         <ToolCommandName>dotnet-compress</ToolCommandName>
         <Title>Brotli/GZip/Deflate CLI Tool</Title>
         <Description>Allows compressing static assets using one of the common formats: Brotli, GZip or Deflate.</Description>
-        <Version>0.0.2</Version>
-        <Authors>DarkXaHTeP</Authors>
+        <Version>1.0.0</Version>
+        <Authors>Alberto Monteiro</Authors>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageProjectUrl>https://github.com/DarkXaHTeP/DarkXaHTeP.CompressedStaticFiles.Tools</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/DarkXaHTeP/DarkXaHTeP.CompressedStaticFiles.Tools</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/AlbertoMonteiro/CompressedStaticFiles.Tools</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/AlbertoMonteiro/CompressedStaticFiles.Tools</RepositoryUrl>
         <PackageReleaseNotes>Test release</PackageReleaseNotes>
         <PackageTags>compress;assets;deflate;brotli;gzip;compression;staticfiles</PackageTags>
         <IncludeSymbols>false</IncludeSymbols>
@@ -24,6 +24,6 @@
         <None Include="..\CHANGELOG.md" CopyToOutputDirectory="Always" />
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.3.4" />
+      <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="4.0.1" />
     </ItemGroup>
 </Project>
