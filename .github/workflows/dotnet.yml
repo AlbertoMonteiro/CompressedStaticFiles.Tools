@@ -29,5 +29,5 @@ jobs:
       run: dotnet build ./CompressedStaticFiles.Tools/CompressedStaticFiles.Tools.csproj -c Release -o nuget
     - name: Publish
       run: |
-        cd nuget
+        cd CompressedStaticFiles.Tools/nuget
         dotnet nuget push *.nupkg -k ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
